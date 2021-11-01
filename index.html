@@ -199,18 +199,58 @@
                 alert(ex.message);
             }
         }
-
-        function pm_joinGame() {
+		//======================================================================================
+        //转牌
+        //======================================================================================
+        function pm_enterGame() {
             try {
                 ws.send(JSON.stringify({
-                    PmEnterGameReq: {
-                        token: "829e2752c2caac464a0d0236e8c138a5",
+                    GsEnterGameReq: {
+                        token: "b327f7f8adabf9240d4e5ec4c9ed5041",
                     }
                 }));
             } catch (ex) {
                 alert(ex.message);
             }
         }
+		
+		function pm_getTableList() {
+		    try {
+		        ws.send(JSON.stringify({
+		            GsGetTableListReq: {
+						"category": 0
+		            }
+		        }));
+		    } catch (ex) {
+		        alert(ex.message);
+		    }
+		}
+		
+		function pm_sitDown() {
+		    try {
+		        ws.send(JSON.stringify({
+		            GsSitDownReq: {
+						"table_id": 2,   //桌号
+						"chair_id": 0     //座位号
+		            }
+		        }));
+		    } catch (ex) {
+		        alert(ex.message);
+		    }
+		}
+		
+		function pm_startGame() {
+		    try {
+		        ws.send(JSON.stringify({
+		            GsStartGameReq: {
+		            }
+		        }));
+		    } catch (ex) {
+		        alert(ex.message);
+		    }
+		}
+		
+///////////////////////////////////////////////////////////////////
 
         function sitgsGame() {
             try {
@@ -529,6 +569,9 @@
 <button id='GsExitGameReq' type="button" onclick='GsExitGameReq();'>11 退出游房间:GsExitGameReq</button>
 <br/><br/>
 <br/>-------------------------------------------------转牌-----------------------------------------------------<br/><br/>
-<button id='Toggleonnei' type="button" onclick='pm_joinGame();'>17 进入游戏房间从大厅进入游戏校验token：phom</button>
+<button id='GsEnterGameReq' type="button" onclick='pm_enterGame();'>1 进入游戏房间从大厅进入游戏校验token：phom</button>
+<button id='GsGetTableListReq' type="button" onclick='pm_getTableList();'>2 获取桌子列表： phom</button>
+<button id='GsSitDownReq' type="button" onclick='pm_sitDown();'>3 加入桌子：phom</button>
+<button id='GsStartGameReq' type="button" onclick='pm_startGame();'>4 开始游戏：phom</button>
 
 <br/><br/>
