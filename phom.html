@@ -8,7 +8,7 @@
         var ws2;
         // var SERVER_IP = "172.18.205.249:3658"
         //var SERVER_IP = "172.18.205.178:3658"
-        var SERVER_IP = "127.0.0.1:3628"
+        var SERVER_IP = "127.0.0.1:3688"
         var token = ""
         var onCallback = null
         function send(args, cb){
@@ -40,7 +40,7 @@
                     }));
                 } catch (ex) {
                     // //(ex.message);
-                    console.log("心跳1")
+                    //console.log("心跳1")
                 }
             }, 20000)
 
@@ -63,7 +63,7 @@
                         }
                     }));
                 } catch (ex) {
-                    console.log("心跳2")
+                  //  console.log("心跳2")
                     // //(ex.message);
                 }
             }, 20000)
@@ -317,7 +317,7 @@
             try {
                 ws.send(JSON.stringify({
                     GsEnterGameReq: {
-                        token: "47bcec388406f67e3fce6855d48257cb",
+                        token: "0ebd0837ee5a6beb2a10cf9fd2fd8670",
                     }
                 }));
             } catch (ex) {
@@ -329,7 +329,7 @@
                 try {
                     ws2.send(JSON.stringify({
                         GsEnterGameReq: {
-                            token: "820da4d3d02600d0dd09629dfbc210f6",
+                            token: "100e21771bc9ebdfcb4abd8e743047db",
                         }
                     }));
                 } catch (ex) {
@@ -411,7 +411,34 @@
                     //(ex.message);
                 }
             }
-
+        function pm_outTrash1() {
+            try {
+                ws.send(JSON.stringify({
+                        Gs_Pm_OutTrashReq: {
+                            "player_id": 1919,
+                            "chair_id": 0,
+                            "out_trash": 99
+                        }
+                    }
+                ));
+            } catch (ex) {
+                //(ex.message);
+            }
+        }
+        function pm_outTrash2() {
+            try {
+                ws2.send(JSON.stringify({
+                        Gs_Pm_OutTrashReq: {
+                            "player_id": 1920,
+                            "chair_id": 1,
+                            "out_trash": 33
+                        }
+                    }
+                ));
+            } catch (ex) {
+                //(ex.message);
+            }
+        }
 ///////////////////////////////////////////////////////////////////
 
         function sitgsGame() {
@@ -739,5 +766,7 @@
 <button id='GsStartGameReq' type="button" onclick='pm_startGame();'>5 开始游戏：phom</button>
 <button id='Gs_Pm_DrawCard' type="button" onclick='pm_drawCard();'>6 摸牌：phom</button>
 <button id='Gs_Pm_DrawCard' type="button" onclick='pm_drawCard2();'>6 摸牌2：phom</button>
+<button id='Gs_Pm_OutTrash' type="button" onclick='pm_outTrash1();'>7 出牌1：phom</button>
+<button id='Gs_Pm_OutTrash' type="button" onclick='pm_outTrash2();'>7 出牌2：phom</button>
 
 <br/><br/>
