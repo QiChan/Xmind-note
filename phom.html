@@ -337,7 +337,7 @@
                 }
             }
 		
-		function pm_getTableList() {
+		function pm_getTableList1() {
 		    try {
 		        ws.send(JSON.stringify({
 		            GsGetTableListReq: {
@@ -348,6 +348,18 @@
 		        //(ex.message);
 		    }
 		}
+
+        function pm_getTableList2() {
+            try {
+                ws2.send(JSON.stringify({
+                    GsGetTableListReq: {
+                        "category": 0
+                    }
+                }));
+            } catch (ex) {
+                //(ex.message);
+            }
+        }
 		
 		function pm_sitDown() {
 		    try {
@@ -374,7 +386,7 @@
 		    }
 		}
 		
-		function pm_startGame() {
+		function pm_startGame1() {
 		    try {
 		        ws.send(JSON.stringify({
 		            GsStartGameReq: {
@@ -384,6 +396,17 @@
 		        //(ex.message);
 		    }
 		}
+
+        function pm_startGame2() {
+            try {
+                ws2.send(JSON.stringify({
+                    GsStartGameReq: {
+                    }
+                }));
+            } catch (ex) {
+                //(ex.message);
+            }
+        }
 
             function pm_drawCard() {
                 try {
@@ -759,11 +782,13 @@
 <br/><br/>
 <br/>-------------------------------------------------转牌-----------------------------------------------------<br/><br/>
 <button id='GsEnterGameReq' type="button" onclick='pm_enterGame1();'>1 进入游戏房间从大厅进入游戏校验token：phom</button>
-<button id='GsEnterGameReq' type="button" onclick='pm_enterGame2();'>2 进入游戏房间从大厅进入游戏校验token：phom</button>
-<button id='GsGetTableListReq' type="button" onclick='pm_getTableList();'>3 获取桌子列表： phom</button>
+<button id='GsEnterGameReq' type="button" onclick='pm_enterGame2();'>1 进入游戏房间从大厅进入游戏校验token：phom</button>
+<button id='GsGetTableListReq' type="button" onclick='pm_getTableList1();'>3 获取桌子列表： phom</button>
+<button id='GsGetTableListReq' type="button" onclick='pm_getTableList2();'>3 获取桌子列表： phom</button>
 <button id='GsSitDownReq' type="button" onclick='pm_sitDown();'>4 加入桌子：phom</button>
 <button id='GsSitDownReq' type="button" onclick='pm_sitDown2();'>4 加入桌子2：phom</button>
-<button id='GsStartGameReq' type="button" onclick='pm_startGame();'>5 开始游戏：phom</button>
+<button id='GsStartGameReq' type="button" onclick='pm_startGame1();'>5 开始游戏：phom</button>
+<button id='GsStartGameReq' type="button" onclick='pm_startGame2();'>5 开始游戏：phom</button>
 <button id='Gs_Pm_DrawCard' type="button" onclick='pm_drawCard();'>6 摸牌：phom</button>
 <button id='Gs_Pm_DrawCard' type="button" onclick='pm_drawCard2();'>6 摸牌2：phom</button>
 <button id='Gs_Pm_OutTrash' type="button" onclick='pm_outTrash1();'>7 出牌1：phom</button>
